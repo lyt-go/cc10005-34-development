@@ -10,13 +10,20 @@ from app.seed import SEED_ROWS
 
 
 class Store:
+    """内存仓库。RUNTIME_TABLES 是信号、采样与决策产生的运行期记录，不算业务模块。"""
+
+    RUNTIME_TABLES = ("monitor_signals", "monitor_samples", "throttle_decisions")
+
     def __init__(self) -> None:
         self._tables: dict[str, list[dict[str, Any]]] = {
             name: [dict(row) for row in rows] for name, rows in SEED_ROWS.items()
         }
+        # 监控信号、采样与限速决策是运行期产生的记录，不放进示例数据。
+        for name in self.RUNTIME_TABLES:
+            self._tables.setdefault(name, [])
 
     def module_names(self) -> list[str]:
-        return sorted(self._tables)
+        return sorted(name for name in self._tables if name not in self.RUNTIME_TABLES)
 
     def rows(self, module: str) -> list[dict[str, Any]]:
         return self._tables.setdefault(module, [])

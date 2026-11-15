@@ -33,3 +33,27 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+
+/* 告警信号与限速决策：明细区、状态徽标与采样表单 */
+.row-selected { background: #eef4ff; }
+.detail-panel { margin-top: 16px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+.detail-head { display: flex; justify-content: space-between; align-items: center; }
+.detail-head h3 { margin: 0; font-size: 15px; }
+.detail-panel h4 { margin: 16px 0 8px; font-size: 13px; color: var(--muted); }
+.detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 16px; margin: 10px 0 4px; }
+.detail-grid div { border: 1px dashed var(--border); border-radius: 6px; padding: 6px 10px; }
+.detail-grid span { display: block; font-size: 12px; color: var(--muted); }
+.detail-grid strong { font-size: 14px; }
+.sample-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin: 12px 0; padding: 10px; background: #f8fafc; border-radius: 8px; }
+.sample-form label span { display: block; font-size: 12px; color: var(--muted); }
+.sample-form input { border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 13px; }
+.detail-toolbar { display: flex; justify-content: space-between; align-items: flex-end; }
+.data-table.compact th, .data-table.compact td { padding: 6px 8px; font-size: 12px; }
+.cell-note { max-width: 260px; color: var(--muted); }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; border: 1px solid transparent; }
+.badge-告警中, .badge-待复核 { background: #fef0e6; color: #b54708; border-color: #f9d9bf; }
+.badge-待确认 { background: #fff8e1; color: #a16207; border-color: #f2e2a8; }
+.badge-已确认, .badge-降速中 { background: #e8f3ff; color: #1f6feb; border-color: #cfe3ff; }
+.badge-已合并, .badge-已忽略, .badge-恢复中 { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.badge-正常, .badge-已观察, .badge-已关闭 { background: #ecfdf3; color: #067647; border-color: #c7ebd6; }
+.hint-text { color: var(--muted); font-size: 12px; margin-top: 10px; }
